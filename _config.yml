@@ -1,11 +1,11 @@
 encoding: utf-8
 
 # SEO相关信息
-title: TMaize Blog
-description: TMaize的个人博客
-keywords: TMaize,Blog,Java,Html,JavaScript
-author: TMaize
-footerText: 'Copyright © 2016 皖ICP备16016174号'
+title: Ryze-T Blog
+description: Ryze-T的个人博客
+keywords: Ryze,Blog,sec
+author: Ryze
+footerText: 'Copyright © 2021 京ICP备2020047629号-1'
 
 # 这些不要动
 permalink: /posts/:year/:month/:day/:title.html
@@ -16,11 +16,9 @@ exclude: ['CNAME', 'README.md', 'LICENSE', '_site', 'dist', 'Gemfile', 'Gemfile.
 
 # 域名配置
 # baseurl配置,如果网站部署在根目录下的其他目录中，请设置为 /目录名
-domainUrl: 'http://blog.tmaize.net'
+domainUrl: 'http://www.ryzeisadmin.top'
 baseurl: ''
 
-# 吐个槽地址，会在chat页面中重定向到该地址
-tucaoUrl: https://support.qq.com/product/86335
 
 # 菜单
 menu:
@@ -31,14 +29,12 @@ menu:
   - title: 搜索
     url: /pages/search.html
   - title: 友链
-    url: /pages/links.html
-  - title: 留言
     url: /pages/chat.html
   - title: 关于
     url: /pages/about.html
 
 # 点击页面文字冒出特效,不需要请设置为false
-extClickEffect: true
+extClickEffect: false
 
 # Google Adsense,不需要请设置为false
 # _includes/ext-adsense.html 里面修改为自己的配置
@@ -46,7 +42,7 @@ extAdsense: false
 
 # 腾讯MTA移动分析,不需要请设置为false
 # _includes/ext-adsense.html 里面修改为自己的配置
-extMTA: true
+extMTA: false
 
 # 百度收录自动推送,不需要请设置为false
 extBaidu: true
@@ -56,19 +52,6 @@ extMath: false
 
 # 友情链接
 links:
-  - title: TMaize的个人博客
-    url: http://blog.tmaize.net
-  - title: 文科中的技术宅
-    url: https://www.townwang.com
-  - title: Auuu Nya Blog
-    url: http://mu1er.cn
-  - title: 春风十里
-    url: https://www.geek-era.com
-  - title: 阿川的个人博客
-    url: https://achuan.io
-  - title: 魏文成博客
-    url: https://www.wwc.ren
-  - title: 06m
-    url: https://www.06m.me
-  - title: 达达知识
-    url: https://www.dadapush.com/
+  - title: t1ucky
+    url: http://t1ucky.love
+
