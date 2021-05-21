@@ -1,2 +1,1 @@
-# Ryze-T's blog
-
+# Ryze-T's Blog

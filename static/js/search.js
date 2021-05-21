@@ -1,77 +1,95 @@
+// 加载所有文章数据，优先使用localStorage缓存
+function loadAllPostData(callback) {
+  if (localStorage.db && localStorage.dbVersion == blog.buildAt) {
+    console.log('loadAllPostData from localStorage')
+    callback ? callback(localStorage.db) : ''
+    return
+  }
+
+  console.log('loadAllPostData from ajax')
+  localStorage.removeItem('dbVersion')
+  localStorage.removeItem('db')
+
+  blog.ajax(
+    {
+      timeout: 20000,
+      url: blog.baseurl + '/static/xml/search.xml'
+    },
+    function (data) {
+      localStorage.db = data
+      localStorage.dbVersion = blog.buildAt
+      callback ? callback(data) : ''
+    },
+    function () {
+      console.error('全文检索数据加载失败...')
+      callback ? callback(null) : ''
+    }
+  )
+}
+
 // 搜索功能
-blog.addLoadEvent(function() {
+blog.addLoadEvent(function () {
   // 标题等信息
-  var titles = []
+  let titles = []
   // 正文内容
-  var contents = []
-  // 上一次输入
-  var keyBefore = ''
+  let contents = []
   // IOS 键盘中文输入bug
-  var inputLock = false
-  // 本地无缓存/站点重新编译，弹框阻塞，加载全文检索内容
-  if (!localStorage.db || localStorage.dbVersion != blog.buildAt) {
-    // 删除失效缓存
-    if (localStorage.db) {
-      localStorage.removeItem('db')
-    }
-    if (localStorage.dbVersion) {
-      localStorage.removeItem('dbVersion')
-    }
-    var loadingDOM = document.querySelector('.page-search h1 img')
-    loadingDOM.style.opacity = 1
+  let inputLock = false
+  // 输入框
+  let input = document.getElementById('search-input')
 
-    blog.ajax(
-      {
-        timeout: 20000,
-        url: blog.baseurl + '/static/xml/search.xml'
-      },
-      function(data) {
-        localStorage.db = data
-        localStorage.dbVersion = blog.buildAt
-        initContentDB()
-        search(document.querySelector('#search-input').value)
-        loadingDOM.style.opacity = 0
-      },
-      function() {
-        console.error('全文检索数据加载失败...')
-      }
-    )
+  // 非搜索页面，预加载数据
+  if (!input) {
+    setTimeout(function () {
+      loadAllPostData()
+    }, 3500)
+    return
   }
 
-  if (localStorage.db) {
-    initContentDB()
-  }
-  document.querySelectorAll('.list-search .title').forEach(function(title) {
-    titles.push(title.innerHTML)
+  let loadingDOM = document.querySelector('.page-search h1 img')
+  loadingDOM.style.opacity = 1
+  loadAllPostData(function (data) {
+    console.log('loadAllPostData done')
+    loadingDOM.style.opacity = 0
+    titles = parseTitle()
+    contents = parseContent(data)
+    search(input.value)
   })
 
-  function initContentDB() {
-    var root = document.createElement('div')
-    root.innerHTML = localStorage.db
-    root.querySelectorAll('li').forEach(function(content) {
-      var str = content.innerHTML
-      contents.push(str)
-    })
+  function parseTitle() {
+    let arr = []
+    let doms = document.querySelectorAll('.list-search .title')
+    for (let i = 0; i < doms.length; i++) {
+      arr.push(doms[i].innerHTML)
+    }
+    return arr
+  }
+
+  function parseContent(data) {
+    let arr = []
+    let root = document.createElement('div')
+    root.innerHTML = data
+    let doms = root.querySelectorAll('li')
+    for (let i = 0; i < doms.length; i++) {
+      arr.push(doms[i].innerHTML)
+    }
+    return arr
   }
 
   function search(key) {
-    key = blog.trim(key)
-    if (key == keyBefore) {
-      return
-    }
     // <>& 替换
+    key = blog.trim(key)
     key = key.replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/&/g, '&amp;')
 
-    keyBefore = key
-    var doms = document.querySelectorAll('.list-search li')
-    var h1 = '<span class="hint">'
-    var h2 = '</span>'
+    let doms = document.querySelectorAll('.list-search li')
+    let h1 = '<span class="hint">'
+    let h2 = '</span>'
     for (let i = 0; i < doms.length; i++) {
-      var title = titles[i]
-      var content = contents[i]
-      var dom_li = doms[i]
-      var dom_title = dom_li.querySelector('.title')
-      var dom_content = dom_li.querySelector('.content')
+      let title = titles[i]
+      let content = contents[i]
+      let dom_li = doms[i]
+      let dom_title = dom_li.querySelector('.title')
+      let dom_content = dom_li.querySelector('.content')
 
       dom_title.innerHTML = title
       dom_content.innerHTML = ''
@@ -81,9 +99,9 @@ blog.addLoadEvent(function() {
         dom_li.setAttribute('hidden', true)
         continue
       }
-      var hide = true
-      var r1 = new RegExp(blog.encodeRegChar(key), 'gi')
-      var r2 = new RegExp(blog.encodeRegChar(key), 'i')
+      let hide = true
+      let r1 = new RegExp(blog.encodeRegChar(key), 'gi')
+      let r2 = new RegExp(blog.encodeRegChar(key), 'i')
 
       // 标题全局替换
       if (r1.test(title)) {
@@ -91,13 +109,13 @@ blog.addLoadEvent(function() {
         dom_title.innerHTML = title.replace(r1, h1 + key + h2)
       }
       // 内容先找到第一个，然后确定100个字符，再对这100个字符做全局替换
-      var cResult = r2.exec(content)
+      let cResult = r2.exec(content)
       if (cResult) {
         hide = false
-        index = cResult.index
-        var leftShifting = 10
-        var left = index - leftShifting
-        var right = index + (100 - leftShifting)
+        let index = cResult.index
+        let leftShifting = 10
+        let left = index - leftShifting
+        let right = index + (100 - leftShifting)
         if (left < 0) {
           right = right - left
         }
@@ -116,16 +134,17 @@ blog.addLoadEvent(function() {
     }
   }
 
-  var input = document.getElementById('search-input')
-  blog.addEvent(input, 'input', function(event) {
+  blog.addEvent(input, 'input', function (event) {
     if (!inputLock) {
       search(event.target.value)
     }
   })
-  blog.addEvent(input, 'compositionstart', function(event) {
+
+  blog.addEvent(input, 'compositionstart', function (event) {
     inputLock = true
   })
-  blog.addEvent(input, 'compositionend', function(event) {
+
+  blog.addEvent(input, 'compositionend', function (event) {
     inputLock = false
     search(event.target.value)
   })

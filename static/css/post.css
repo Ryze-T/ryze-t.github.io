@@ -7,15 +7,10 @@
   font-size: 18px;
   font-weight: bold;
   color: #666666;
-  line-height: 1;
-  padding-bottom: 16px;
 }
 .page-post .subtitle {
-  font-size: 13px;
+  font-size: 12px;
   color: #999999;
-  position: relative;
-  top: -6px;
-  line-height: 1;
 }
 .page-post .post > * {
   margin: 18px 0;
@@ -36,7 +31,6 @@
   top: 0;
   font-weight: bold;
   padding-right: 6px;
-  color: #333333;
 }
 .page-post h3,
 .page-post h4,
@@ -77,39 +71,50 @@
   max-width: 100%;
   margin: 0 auto;
   height: auto;
-  -webkit-box-shadow: 0 0 5px #e0e0e0;
   box-shadow: 0 0 5px #e0e0e0;
 }
-.page-post code {
-  background-color: #eeeeee;
-  word-break: break-all;
-  padding: 0 4px;
-  margin: 0 2px;
-  border-radius: 4px;
-  color: #4d4d4c;
+.page-post img[alt='line'] {
+  display: inline-block;
+  vertical-align: middle;
+  background-color: transparent;
+  box-shadow: none;
+  margin: 0 4px;
+  line-height: 1;
 }
 .page-post pre {
   font-size: 0;
   padding: 10px;
   overflow: auto;
   border-radius: 2px;
-  background-color: #f7f7f7;
-  max-height: 550px;
+  max-height: 610px;
   -moz-tab-size: 4;
   -o-tab-size: 4;
   tab-size: 4;
+  line-height: 1.6;
+}
+.page-post code {
+  font-size: 13px;
+  background-color: #eeeeee;
+  word-break: break-all;
+  padding: 3px 5px;
+  margin: 0 4px;
+  border-radius: 5px;
+  color: #4d4d4c;
+  transition: all 500ms ease;
 }
 .page-post pre code {
-  background-color: transparent;
   font-size: 13px;
+  background-color: transparent !important;
+  word-break: keep-all;
   padding: 0;
   margin: 0;
-  line-height: 1.6;
+  border-radius: unset;
+  color: inherit;
 }
 .page-post hr {
   border: none;
-  height: 1px;
-  background-color: #f5f5f5;
+  height: 3px;
+  background-color: #eeeeee;
 }
 .page-post table {
   min-width: 100%;
@@ -146,14 +151,6 @@
 @media screen and (max-width: 560px) {
   .page-post {
     font-size: 13px;
-  }
-  .page-post .title {
-    padding-top: 12px;
-    padding-bottom: 12px;
-  }
-  .page-post .subtitle {
-    top: -2px;
-    font-size: 11px;
   }
   .page-post pre code {
     font-size: 12px;
