@@ -1,14 +1,10 @@
----
-clayout: mypost
-title: 官方提供的 Windows defender bypass
-categories: [bypass,windows]
----
+# 官方提供的 Windows defender bypass
 
 ## 官方文档
 
 在制作免杀的过程中，翻找 Windows 官方对 Windows Defender 的介绍，发现有这样一个目录：[Configure Microsoft Defender Antivirus exclusions on Windows Server](https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/configure-server-exclusions-microsoft-defender-antivirus?view=o365-worldwide#list-of-automatic-exclusions)（在 Windows server 中配置defender排除项）。
 
-![image-20210606095505864](C:\Users\ryze1\Desktop\github\ryze-t.github.io\posts\image-20210606095505864.png)
+![image-20210606095505864](..\posts\image-20210606095505864.png)
 
 简而言之就是在 Windows Server2016 和 2019 中，Windows Defender 默认存在一些排除项，在实时检测过程中会忽略这些排除项，但是主动扫描的时候不会排除。这就给 Bypass Windows Defender 提供了一个新思路。
 
@@ -35,18 +31,18 @@ categories: [bypass,windows]
 
 首先使用 msf 生成一个默认的 exe 木马，并下载到目标服务器中执行，发现 Windows Defender 发出警告：
 
-![image-20210604210325855](C:\Users\ryze1\Desktop\github\ryze-t.github.io\posts\image-20210604210325855.png)
+![image-20210604210325855](..\posts\image-20210604210325855.png)
 
 获得的 session 也是昙花一现：
 
-![image-20210604210401621](C:\Users\ryze1\Desktop\github\ryze-t.github.io\posts\image-20210604210401621.png)
+![image-20210604210401621](..\posts\image-20210604210401621.png)
 
 新建 php5433 目录，并将木马更名为 php-cgi.exe，执行：
 
-![image-20210604211451374](C:\Users\ryze1\Desktop\github\ryze-t.github.io\posts\image-20210604211451374.png)
+![image-20210604211451374](..\posts\image-20210604211451374.png)
 
 
 
 木马正常上线：
 
-![image-20210604210747421](C:\Users\ryze1\Desktop\github\ryze-t.github.io\posts\image-20210604210747421.png)
+![image-20210604210747421](..\posts\image-20210604210747421.png)
