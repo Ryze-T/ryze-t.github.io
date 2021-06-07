@@ -39,7 +39,7 @@
 
 新建 php5433 目录，并将木马更名为 php-cgi.exe，执行：
 
-![image-20210607090640429](../posts/image-20210607090640429.png)
+![image-20210607090640429](https://gitee.com/tboom_is_here/pic/raw/master/img/image-20210607090640429.png)
 
 
 
