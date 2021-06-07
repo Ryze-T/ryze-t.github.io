@@ -1,4 +1,8 @@
-# 官方提供的 Windows defender bypass
+---
+clayout: mypost
+title: 官方提供的 Windows defender bypass
+categories: [bypass,windows]
+---
 
 ## 官方文档
 
