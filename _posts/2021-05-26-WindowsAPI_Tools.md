@@ -4,8 +4,6 @@ title: WindowsAPI_tools
 categories: [tools,windows]
 ---
 
-[TOC]
-
 ## 增加用户
 
 ```c
