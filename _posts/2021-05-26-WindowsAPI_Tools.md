@@ -75,22 +75,13 @@ int main(int argc, wchar_t* argv[])
 	DWORD dwLevel = 1008;
 	DWORD dwLevel2 = 1003;
 	USER_INFO_1008 ui;
-	USER_INFO_1003  ui1;
-	USER_INFO_1 ui2;
+	USER_INFO_1003  
 	NET_API_STATUS ntStatus, ntStatus2, ntStatus3;
 
 	
 	ui.usri1008_flags = UF_SCRIPT;
 
 	ui1.usri1003_password = argv[1];
-
-	ui2.usri1_name =L"Guest";
-	ui2.usri1_password = argv[1];
-	ui2.usri1_priv = USER_PRIV_USER;
-	ui2.usri1_home_dir = NULL;
-	ui2.usri1_comment = NULL;
-	ui2.usri1_flags = UF_SCRIPT;
-	ui2.usri1_script_path = NULL;
 
 	ntStatus = NetUserSetInfo(NULL,
 		L"guest",
