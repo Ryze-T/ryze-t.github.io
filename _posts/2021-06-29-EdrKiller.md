@@ -58,7 +58,7 @@ categories: [tools,windows]
     );
     ```
 
-  + LoadResource 检索可用于获取指向内存中指定资源的第一个字节的指针的句柄。
+  + LoadResource 加载资源到内存中。
 
     ```c
     HGLOBAL LoadResource(
