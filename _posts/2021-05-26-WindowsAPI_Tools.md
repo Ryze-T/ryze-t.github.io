@@ -6,6 +6,8 @@ categories: [tools,windows]
 
 # Windows API tools
 
+（编译后的地址：https://github.com/Ryze-T/Windows_API_Tools）
+
 ## 增加用户
 
 ```c
