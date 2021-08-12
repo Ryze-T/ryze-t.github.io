@@ -79,7 +79,7 @@ int main(int argc, wchar_t* argv[])
 	DWORD dwLevel = 1008;
 	DWORD dwLevel2 = 1003;
 	USER_INFO_1008 ui;
-	USER_INFO_1003  
+	USER_INFO_1003 ui1; 
 	NET_API_STATUS ntStatus, ntStatus2, ntStatus3;
 
 	
