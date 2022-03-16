@@ -1,10 +1,11 @@
-<script>
-    new Valine({
-        avatar: 'retro',
-        av: AV,
-        el: '#comments',
-        app_id: '{{ site.data.social.valine_comment.leancloud_appid }}',
-        app_key: '{{ site.data.social.valine_comment.leancloud_appkey }}',
-        placeholder:'{{ site.data.social.valine_comment.placeholder }}'
-    });
-</script>
+{%- if jekyll.environment != 'development' -%}
+  {%- if site.comments.provider == 'disqus' -%}
+    {%- include comments-providers/disqus.html -%}
+  {%- elsif site.comments.provider == 'gitalk' -%}
+    {%- include comments-providers/gitalk.html -%}
+  {%- elsif site.comments.provider == 'valine' -%}
+    {%- include comments-providers/valine.html -%}
+  {%- elsif site.comments.provider == 'custom' -%}
+    {%- include comments-providers/custom.html -%}
+  {%- endif -%}
+{%- endif -%}
