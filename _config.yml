@@ -1,14 +1,14 @@
-title: Link #博客标题
-description: Just 4 Fun. #博客描述
-keywords: blog,css,html,php #博客关键字
+title: Ryze-T #博客标题
+description: RedTeam || Sec Research. #博客描述
+keywords: blog,sec,hack,redteam,windows,tools,bypass #博客关键字
 
 #title hide and show
-hide: (つェ⊂)我藏好啦
-show: ´∇｀ 呀被发现啦~ 
+hide: (つェ⊂) Wait For U
+show: ´∇｀Please Call Me
 
 baseurl: "" # change this to the subpath of your site, e.g. /blog. Leave it empty if you don't need it.
 url: "ryze-t.com" # change this to the base hostname & protocol for your site
-bulidtime: "1514736000" #博客建立时的时间戳 可进入https://tool.lu/timestamp/将博客建立时的日期转换成时间戳
+bulidtime: "1621992754" #博客建立时的时间戳 可进入https://tool.lu/timestamp/将博客建立时的日期转换成时间戳
            #The timestamp at the time of blog establishment can be entered at https://tool.lu/timestamp/to convert the date at the time of blog establishment into a timestamp.
 
 paginate: 8 #同时显示的最大文章数，超过自动分页
@@ -33,7 +33,7 @@ plugins:
   - jemoji
 
 # social
-author: "Link"
+author: "ryze"
 image:
 twitter:
   username:
