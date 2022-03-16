@@ -1,6 +1,6 @@
 ---
 title: Windows API tools
-tags: Windows,tools
+tags: tools
 ---
 
 # Windows API tools
