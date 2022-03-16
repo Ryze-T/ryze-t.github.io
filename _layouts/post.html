@@ -1,144 +1,65 @@
 ---
-layout: page
-refactor: true
-pannel_includes:
-  - toc
-tail_includes:
-  - related-posts
-  - post-nav
-  - comments
+layout: default
 ---
+<article itemscope itemtype="">
 
-{% include lang.html %}
-
-{% if page.image.src %}
-  {% capture bg %}
-    {% unless page.image.no_bg %}{{ 'bg' }}{% endunless %}
-  {% endcapture %}
-  <img src="{{ page.image.src }}" class="preview-img {{ bg | strip }}"
-      alt="{{ page.image.alt | default: "Preview Image" }}"
-
-      {% if page.image.width %}
-        width="{{ page.image.width }}"
-      {% elsif page.image.w %}
-        width="{{ page.image.w }}"
-      {% endif %}
-
-      {% if page.image.height %}
-        height="{{ page.image.height }}"
-      {% elsif page.image.h %}
-        height="{{ page.image.h }}"
-      {% endif %}>
-{% endif %}
-
-<h1 data-toc-skip>{{ page.title }}</h1>
-
-<div class="post-meta text-muted">
-
-  <!-- author -->
-  <div>
-    {% capture author_name %}{{ page.author.name | default: site.social.name }}{% endcapture %}
-    {% assign author_link = nil %}
-
-    {% if page.author.link %}
-      {% assign author_link = page.author.link %}
-    {% elsif author_name == site.social.name %}
-      {% assign author_link = site.social.links[0] %}
-    {% endif %}
-
-    {{ site.data.locales[lang].post.written_by }}
-    <em>
-      {% if author_link %}
-        <a href="{{ author_link }}">{{ author_name }}</a>
-      {% else %}
-        {{ author_name }}
-      {% endif %}
-    </em>
+  <!-- <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {% assign date_format = site.hydrogen-blog.date_format | default: "%b %-d, %Y" %}
+        {{ page.date | date: date_format }}
+      </time>
+      {% if page.author %}
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>
+      {% endif %}</p>
+  </header> -->
+<script>
+  document.getElementsByTagName("img").className="bbb";
+  </script>
+  
+  <div itemprop="articleBody">
+    {{ content }}
   </div>
 
-  <div class="d-flex">
-    <div>
-      <!-- published date -->
-      <span>
-        {{ site.data.locales[lang].post.posted }}
-        {% include timeago.html date=page.date tooltip=true %}
-      </span>
+    {% include tags_list.html tags=page.tags tag_count=page.tags.size %}
 
-      <!-- lastmod date -->
-      {% if page.last_modified_at %}
-      <span>
-        {{ site.data.locales[lang].post.updated }}
-        {% include timeago.html date=page.last_modified_at tooltip=true %}
-      </span>
-      {% endif %}
+<hr/>
+{% comment %}  
+<!-- LiveRe -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMjY0Mi85MjAz">
+  <script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
 
-      <!-- read time -->
-      {% include read-time.html content=content prompt=true %}
+       if (typeof LivereTower === 'function') { return; }
 
-      <!-- page views -->
-      {% if site.google_analytics.pv.proxy_endpoint or site.google_analytics.pv.cache_path %}
-      <span>
-        <em id="pv" class="pageviews">
-          <i class="fas fa-spinner fa-spin fa-fw"></i>
-        </em>
-        {{ site.data.locales[lang].post.pageview_measure }}
-      </span>
-      {% endif %}
-    </div>
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
 
-  </div> <!-- .d-flex -->
-
-</div> <!-- .post-meta -->
-
-<div class="post-content">
-  {{ content }}
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+  </script>
+<noscript> 为正常使用评论功能请激活JavaScript</noscript>
 </div>
-
-<div class="post-tail-wrapper text-muted">
-
-  <!-- categories -->
-  {% if page.categories.size > 0 %}
-  <div class="post-meta mb-3">
-    <i class="far fa-folder-open fa-fw mr-1"></i>
-    {% for category in page.categories %}
-      <a href='{{ site.baseurl }}/categories/{{ category | slugify | url_encode }}/'>{{ category }}</a>
-      {%- unless forloop.last -%}, {%- endunless -%}
-    {% endfor %}
-  </div>
+<!-- end LiveRe -->
+{% endcomment %}
+  
+  {% if site.show_comment %}
+  123333
   {% endif %}
-
-  <!-- tags -->
-  {% if page.tags.size > 0 %}
-  <div class="post-tags">
-    <i class="fa fa-tags fa-fw mr-1"></i>
-      {% for tag in page.tags %}
-      <a href="{{ site.baseurl }}/tags/{{ tag | slugify | url_encode }}/"
-          class="post-tag no-text-decoration" >
-        {{- tag -}}
-      </a>
-      {% endfor %}
-  </div>
+  
+  {% if site.data.social.valine_comment.enable  == true %}
+  <script src="/comment/av-min.js"></script>
+  <script src="/comment/Valine.min.js"></script>
+  <div id="comments"></div>
+  {% include comments.html %}
   {% endif %}
+  {% include scripts.html %}
 
-  <div class="post-tail-bottom
-    d-flex justify-content-between align-items-center mt-3 pt-5 pb-2">
-    <div class="license-wrapper">
 
-      {% if site.data.locales[lang].copyright.license.template %}
-
-        {% capture _replacement %}
-        <a href="{{ site.data.locales[lang].copyright.license.link }}">
-          {{ site.data.locales[lang].copyright.license.name }}
-        </a>
-        {% endcapture %}
-
-        {{ site.data.locales[lang].copyright.license.template | replace: ':LICENSE_NAME', _replacement }}
-
-      {% endif %}
-    </div>
-
-    {% include post-sharing.html %}
-
-  </div><!-- .post-tail-bottom -->
-
-</div><!-- div.post-tail-wrapper -->
+  {% if site.disqus.shortname %}
+    {% include disqus_comments.html %}
+  {% endif %}
+</article>
