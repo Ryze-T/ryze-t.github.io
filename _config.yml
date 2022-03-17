@@ -118,7 +118,7 @@ sharing:
 ## => Comments
 ##############################
 comments:
-  provider: false # false (default), "disqus", "gitalk", "valine", "custom"
+  provider: gitalk # false (default), "disqus", "gitalk", "valine", "custom"
 
   ## Disqus
   disqus:
@@ -127,10 +127,10 @@ comments:
   ## Gitalk
   # please refer to https://github.com/gitalk/gitalk for more info.
   gitalk:
-    clientID    : # GitHub Application Client ID
-    clientSecret: # GitHub Application Client Secret
-    repository  : # GitHub repo
-    owner       : # GitHub repo owner
+    clientID    : d00322766977b772dd05 # GitHub Application Client ID
+    clientSecret: 8659701b132d07bc732f09325d6351aaada16adf # GitHub Application Client Secret
+    repository  : ryze-t.github.io # GitHub repo
+    owner       : Ryze-T # GitHub repo owner
     admin: # GitHub repo owner and collaborators, only these guys can initialize GitHub issues, IT IS A LIST.
       # - your GitHub Id
 
@@ -147,13 +147,13 @@ comments:
 ## => Pageview
 ##############################
 pageview:
-  provider: true # false (default), "leancloud", "custom"
+  provider: leancloud # false (default), "leancloud", "custom"
 
   ## Leancloud
   leancloud:
-    app_id    : # LeanCloud App id
-    app_key   : # LeanCloud App key
-    app_class : # LeanCloud App class
+    app_id    : fUg6JKvEoR9Q4t7BJ8sLCKw0-gzGzoHsz # LeanCloud App id
+    app_key   : S2a0zAzGUIgtQFYAzPUtHnbX # LeanCloud App key
+    app_class : blog # LeanCloud App class
 
 
 ## => Search
