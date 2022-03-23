@@ -5,6 +5,8 @@ tags: bypass
 
 # cdb执行shellcode
 
+（程序以及脚本均上传github：https://github.com/Ryze-T/cdb-wds）
+
 cdb 是安装 windows debugging tools 时自带的一个命令行调试工具，也是由微软签发证书：
 
 ![](https://gitee.com/tboom_is_here/pic/raw/master/2021-10-21/20220323141141.png)
