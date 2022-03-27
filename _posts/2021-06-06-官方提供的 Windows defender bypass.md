@@ -3,8 +3,6 @@ title: 官方提供的 Windows defender bypass
 tags: bypass
 ---
 
-# 官方提供的 Windows defender bypass
-
 ## 官方文档
 
 在制作免杀的过程中，翻找 Windows 官方对 Windows Defender 的介绍，发现有这样一个目录：[Configure Microsoft Defender Antivirus exclusions on Windows Server](https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/configure-server-exclusions-microsoft-defender-antivirus?view=o365-worldwide#list-of-automatic-exclusions)（在 Windows server 中配置defender排除项）。

@@ -2,8 +2,6 @@
 title: GetMenuBarInfo 实现 Windows 内核任意地址读取
 tags: windows
 ---
-# GetMenuBarInfo 实现 Windows 内核任意地址读取
-
 ## 0x00 前言
 
 此手法首次出现在 CVE-2021-1732 的 EXP 中，在获得任意地址写权限后，利用 user32!GetMenuBarInfo 函数与伪造的 spMenu 结构体进行内核读取。

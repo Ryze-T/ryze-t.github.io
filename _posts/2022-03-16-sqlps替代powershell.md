@@ -3,7 +3,6 @@ title: sqlps替代powershell
 tags: bypass
 ---
 
-# sqlps替代powershell
 ## 0x00 前言
 
 sql server 默认安装后，会发现有一个 sqlps.exe：

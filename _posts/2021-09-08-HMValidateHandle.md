@@ -3,8 +3,6 @@ title: HMValidateHandle
 tags: windows
 ---
 
-# HMValidateHandle
-
 ## 0x00 前言
 
 一个典型的漏洞利用过程大概分为以下几步：

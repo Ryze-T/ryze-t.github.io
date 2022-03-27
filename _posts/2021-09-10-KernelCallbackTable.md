@@ -2,8 +2,6 @@
 title: KernelCallbackTable
 tags: windows
 ---
-# KernelCallbackTable
-
 ## 0x00 简介
 
 Windows 中有窗口的程序就有可能 ring0 直接调用 ring3的程序，KernelCallbackTable 就用于从内核回调用户空间的函数，因此可以用于 ring0 执行 ring3 代码
