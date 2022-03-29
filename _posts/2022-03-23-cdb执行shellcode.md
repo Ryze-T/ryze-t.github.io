@@ -1,5 +1,4 @@
 ---
-layout: default
 title: cdb执行shellcode
 tags: bypass
 ---

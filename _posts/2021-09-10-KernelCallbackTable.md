@@ -1,5 +1,4 @@
 ---
-layout: default
 title: KernelCallbackTable
 tags: windows
 ---

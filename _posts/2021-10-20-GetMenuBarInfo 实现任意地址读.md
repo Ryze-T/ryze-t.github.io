@@ -1,5 +1,4 @@
 ---
-layout: default
 title: GetMenuBarInfo 实现 Windows 内核任意地址读取
 tags: windows
 ---
