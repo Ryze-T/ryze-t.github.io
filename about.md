@@ -18,4 +18,4 @@ github: Ryze-T
 
 团队公众号：
 
-![image-20220329102000160](../../../AppData/Roaming/Typora/typora-user-images/image-20220329102000160.png)
+![image-20220329102000160](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329103229.png)
