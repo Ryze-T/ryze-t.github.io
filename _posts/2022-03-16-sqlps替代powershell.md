@@ -1,4 +1,5 @@
 ---
+layout: default
 title: sqlps替代powershell
 tags: bypass
 ---

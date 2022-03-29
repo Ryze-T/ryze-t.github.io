@@ -1,4 +1,5 @@
 ---
+layout: default
 title: 官方提供的 Windows defender bypass
 tags: bypass
 ---

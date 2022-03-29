@@ -1,4 +1,5 @@
 ---
+layout: default
 title: HMValidateHandle
 tags: windows
 ---
