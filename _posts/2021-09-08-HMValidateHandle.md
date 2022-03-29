@@ -23,13 +23,13 @@ HMValidateHandle 是 user32.dll 中一个内部未公开的函数，他需要两
 
 用 IDA 分析 user32.dll，查找到函数 isMenu：
 
-![](https://gitee.com/tboom_is_here/bed/raw/master/img/image.png)
+![](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329095914.png)
 
 可以看到 HMVaildateHandle 在此函数中被调用，因此只要查找此函数，找到 opcode 等于 e80，就可以找到HMValidateHandle 的地址。
 
 整个代码流程为：
 
-![image-20210909183005095](https://gitee.com/tboom_is_here/bed/raw/master/img/image-20210909183005095.png)
+![image-20210909183005095](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329095917.png)
 
 ## 0x04 代码
 
@@ -97,7 +97,7 @@ int main()
 ```
 
 
-![](https://gitee.com/tboom_is_here/bed/raw/master/img/image_2.png)
+![](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329095921.png)
 
 ## 0x05 代码2
 
@@ -105,11 +105,11 @@ int main()
 
 IDA查看引用：
 
-![](https://gitee.com/tboom_is_here/bed/raw/master/img/image_3.png)
+![](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329095924.png)
 
 挑选偏移较小的函数，如 GetMenuItemCount：
 
-![](https://gitee.com/tboom_is_here/bed/raw/master/img/image_4.png)
+![](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329095926.png)
 
 首次调用的依然是 HMValideateHandle，因此可以直接修改代码为：
 

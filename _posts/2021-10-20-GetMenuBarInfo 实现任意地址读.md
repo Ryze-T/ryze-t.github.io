@@ -91,21 +91,21 @@ typedef struct tagRECT {
 
 IDA 导入 user32.dll，查看 user32!GetMenuBarInfo:
 
-![](https://gitee.com/tboom_is_here/pic/raw/master/img/image.png)
+![](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329100007.png)
 
 可以看到 user32.dll 中并没有这个 API 的功能，而是又调用了一次
 
 查看导入函数：
 
-![](https://gitee.com/tboom_is_here/pic/raw/master/img/image_x.png)
+![](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329100010.png)
 
 因此导入 win32kfull.sys，查看 win32u!NtUserMenuBarInfo：
 
-![](https://gitee.com/tboom_is_here/pic/raw/master/img/image_2x.png)
+![](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329100012.png)
 
 根据user32!NtUserMenuBarInfo，美化一下
 
-![](https://gitee.com/tboom_is_here/pic/raw/master/img2/image_3.png)
+![](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329100016.png)
 
 可以看到 win32u!NtUserMenuBarInfo 会调用 xxxGetMenuBarInfo，且传入的参数为
 
@@ -113,7 +113,7 @@ xxxGetMenuBarInfo(ptagWnd, idObject, idItem, pmbi)。
 
 对核心代码进行解析：
 
-![](https://gitee.com/tboom_is_here/pic/raw/master/img2/image_4.png)
+![](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329100019.png)
 
 传入参数 idObject  为 -3 时，可触发此流程。
 
@@ -132,7 +132,7 @@ v40 = 0x60 * idItems + v39 -0x60 = v39 = ptagWnd->spMenu->rgItems;
 ```
 
 
-![](https://gitee.com/tboom_is_here/pic/raw/master/img2/image_5.png)
+![](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329100022.png)
 
 116行判断通常会触发 else 分支。
 
@@ -178,27 +178,27 @@ SetWindowsLong 函数的功能是改变指定窗口的属性，第二个参数 n
 
 用 ida 查看 user32!SetWindowLong：
 
-![](https://gitee.com/tboom_is_here/pic/raw/master/img2/image_7.png)
+![](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329100026.png)
 
-![](https://gitee.com/tboom_is_here/pic/raw/master/img2/image_8.png)
+![](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329100028.png)
 
 查看 win32u!NtuserSetWindoLong
 
-![](https://gitee.com/tboom_is_here/pic/raw/master/img2/image_9.png)
+![](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329100055.png)
 
 查看 win32u!xxxSetWindowLongPtr：
 
-![](https://gitee.com/tboom_is_here/pic/raw/master/img2/image_10.png)
+![](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329100100.png)
 
 ![](image/image_11.png)
 
 查看 win32u!xxxSetWindowData：
 
-![](https://gitee.com/tboom_is_here/pic/raw/master/img2/image_12.png)
+![](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329100101.png)
 
 这里看伪代码有点问题，切回汇编：
 
-![](https://gitee.com/tboom_is_here/pic/raw/master/img2/image_13.png)
+![](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329100103.png)
 
 其表达的含义应为：
 

@@ -39,9 +39,9 @@ tags: tools
 
 + 添加资源文件 –> 导入 ProcEXP.sys
 
-  ![image-20210627190230590](https://gitee.com/tboom_is_here/pic/raw/master/img/image-20210627190230590.png)
+  ![image-20210627190230590](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329095819.png)
 
-  ![image-20210627190242606](https://gitee.com/tboom_is_here/pic/raw/master/img/image-20210627190242606.png)
+  ![image-20210627190242606](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329095821.png)
 
 + 操作资源文件落地
 
@@ -87,7 +87,7 @@ tags: tools
 
 （这种方法应该也可以用做免杀）
 
-![image-20210627195746188](https://gitee.com/tboom_is_here/pic/raw/master/img/image-20210627195746188.png)
+![image-20210627195746188](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329095824.png)
 
 ### 加载驱动
 
@@ -107,11 +107,11 @@ status = RegSetValueEx(hKey, L"Start", 0, REG_DWORD, (BYTE*)&dwData, sizeof(DWOR
 status = RegSetValueEx(hKey, L"ImagePath", 0, REG_SZ, (const BYTE*)driverPath, (DWORD)(sizeof(wchar_t) * (wcslen(driverPath) + 1)));
 ```
 
-![image-20210627211804360](https://gitee.com/tboom_is_here/pic/raw/master/img/image-20210627211804360.png)
+![image-20210627211804360](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329095827.png)
 
 此时再调用 NtLoadDriver 加载驱动：
 
-![image-20210628105357376](https://gitee.com/tboom_is_here/pic/raw/master/img/image-20210628105357376.png)
+![image-20210628105357376](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329095829.png)
 
 ### 连接驱动
 
@@ -123,13 +123,13 @@ HANDLE hProcExp = CreateFileA("\\\\.\\PROCEXP152", GENERIC_ALL, 0, NULL, OPEN_EX
 
 连接使用的 CreateFileA，此 API 连接驱动时，驱动名称格式默认为 `\\\\.\\DeviceName`，这里的 DeviceName 并不是 PROCEXP，通过火绒剑查看：
 
-![image-20210628135833251](https://gitee.com/tboom_is_here/pic/raw/master/img/image-20210628135833251.png)实际连接应该为 PROCEXP152
+![image-20210628135833251](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329095832.png)实际连接应该为 PROCEXP152
 
 ### 获取保护进程句柄
 
 任务管理器直接关闭 EDR 是无法关闭的：
 
-![image-20210628145917986](https://gitee.com/tboom_is_here/pic/raw/master/img/image-20210628145917986.png)
+![image-20210628145917986](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329095834.png)
 
 原因就是该进程有保护进程，所以要想 Kill EDR，就需要找到保护进程，参考[这篇文章](https://www.cnblogs.com/zmlctt/p/3979108.html)，简要了解一下隐藏进程和保护进程的概念。 
 
@@ -197,6 +197,6 @@ typedef struct _ioControl
 
 以火绒举例：
 
-![image-20210629093739324](https://gitee.com/tboom_is_here/pic/raw/master/img/image-20210629093739324.png)
+![image-20210629093739324](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329095838.png)
 
-![image-20210629093822512](https://gitee.com/tboom_is_here/pic/raw/master/img/image-20210629093822512.png)
+![image-20210629093822512](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329095839.png)

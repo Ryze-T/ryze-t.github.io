@@ -7,7 +7,7 @@ tags: bypass
 
 cdb 是安装 windows debugging tools 时自带的一个命令行调试工具，也是由微软签发证书：
 
-![](https://gitee.com/tboom_is_here/pic/raw/master/2021-10-21/20220323141141.png)
+![](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329100834.png)
 
 既然是调试工具，那就可以调试指定进程，且在指定进程里分配RWX属性内存并写入shellcode，最后执行该内存中的shellcode。
 
@@ -68,11 +68,11 @@ cdb.exe -pd -cf shell.wds -o notepad.exe
 
 可以看到正常上线：
 
-![](https://gitee.com/tboom_is_here/pic/raw/master/2021-10-21/20220323141146.png)
+![](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329100837.png)
 
 查看受害机器进程：
 
-![](https://gitee.com/tboom_is_here/pic/raw/master/2021-10-21/20220323141149.png)
+![](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329100839.png)
 
 可以看到是在 notepad 进程中存在 tcp 连接，隐蔽性相对较高，且由于shellcode没明显特征，cdb 有签名，因此免杀效果很好。
 

@@ -24,7 +24,7 @@ KeUserModeCallback (
 
 KeUserModeCallback 调用过程：
 
-![](https://gitee.com/tboom_is_here/pic/raw/master/img/Ar2xznvsXQHotO1.png)
+![](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329095936.png)
 
 重点：
 
@@ -36,25 +36,25 @@ KeUserModeCallback 调用过程：
 
 KernelCallbackTable 的结果在 PEB 中能找到，因此需要先找到一个进程的 PEB:
 
-![](https://gitee.com/tboom_is_here/pic/raw/master/img/image_1.png)
+![](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329095940.png)
 
 查看 peb 结构`dt _peb 000000c191a7c000` 找到 KernelCallbackTable：
 
-![](https://gitee.com/tboom_is_here/pic/raw/master/img/image_2.png)
+![](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329095942.png)
 
 dps 会显示给定范围的内存内容。当该内存是符号表中的一系列地址时，相应的符号也会显示出来
 
-![](https://gitee.com/tboom_is_here/pic/raw/master/img/image_3.png)
+![](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329095948.png)
 
 ## 0x03 寻找指定回调函数偏移
 
 根据 0x02 使用 dps 看到的 KernelCallbackTable 内容，找到 USER32!_xxxClientAllocWindowClassExtraBytes 函数地址：
 
-![](https://gitee.com/tboom_is_here/pic/raw/master/img/image_4.png)
+![](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329095952.png)
 
 计算偏移：
 
-![](https://gitee.com/tboom_is_here/pic/raw/master/img/image_5.png)
+![](https://ryze-1258886299.cos.ap-beijing.myqcloud.com/20220329095955.png)
 
 因此如果需要在代码里调用或 hook USER32!_xxxClientAllocWindowClassExtraBytes，则代码应为：
 
