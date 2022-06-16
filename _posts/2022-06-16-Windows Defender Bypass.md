@@ -15,7 +15,7 @@ tags: Bypass
 
 参考 https://github.com/plackyhacker/Shellcode-Encryptor的思路。
 
-代码均以上传至github：
+代码均以上传至github：https://github.com/Ryze-T/Bypass_WindowsDefender
 
 分为两个步骤：shellcode加密和加载器执行。
 
