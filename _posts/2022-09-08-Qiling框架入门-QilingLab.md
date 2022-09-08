@@ -15,7 +15,7 @@ QilingLab rootfs 下载地址：https://github.com/qilingframework/rootfs/tree/m
 
 Qiling文档：https://docs.qiling.io/en/latest/
 
-实验环境以及exp都打包在github里了：https://github.com/Ryze-T/qilinglab-slov
+实验环境以及exp都打包在github里了：https://github.com/Ryze-T/qilinglab-slove
 
 挑战如下：
 
