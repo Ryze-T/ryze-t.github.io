@@ -5,7 +5,7 @@ type: about
 
 欢迎交流：
 
-微信: Just_sudo_it
+微信: Ryze-T
 
 邮箱: [ryze1.0@qq.com](mailto:ryze1.0@qq.com)
 
