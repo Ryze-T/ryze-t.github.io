@@ -1,6 +1,6 @@
 ---
 title: Windows Defender Bypass
-tags: Bypass,Windows
+tags: Bypass
 ---
 
 # Windows Defender Bypass

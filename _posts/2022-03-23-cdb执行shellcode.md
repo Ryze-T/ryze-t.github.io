@@ -1,6 +1,6 @@
 ---
 title: cdb执行shellcode
-tags: Bypass,RedTeam
+tags: Bypass
 ---
 
 （程序以及脚本均上传github：https://github.com/Ryze-T/cdb-wds）

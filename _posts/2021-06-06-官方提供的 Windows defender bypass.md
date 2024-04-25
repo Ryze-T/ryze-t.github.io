@@ -1,6 +1,6 @@
 ---
 title: 官方提供的 Windows defender bypass
-tags: Windows,Bypass,RedTeam
+tags: Bypass
 ---
 
 ## 官方文档
