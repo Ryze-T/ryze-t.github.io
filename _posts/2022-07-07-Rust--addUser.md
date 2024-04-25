@@ -1,6 +1,6 @@
 ---
 title: Rust--addUser
-tags: tools
+tags: Tools
 ---
 ## 0x00 前言
 偶然得知微软官方发布了Rust for Windows（https://github.com/microsoft/windows-rs），Rust可以直接原生调用任何Windows API，极大的扩展了 rust 在 windows 上的开发范围和能力。

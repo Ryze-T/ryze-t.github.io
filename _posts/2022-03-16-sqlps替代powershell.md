@@ -1,6 +1,6 @@
 ---
 title: sqlps替代powershell
-tags: bypass
+tags: Bypass,RedTeam
 ---
 
 ## 0x00 前言

@@ -1,6 +1,6 @@
 ---
 title: Sliver（一）：Sliver基础
-tags: Red Team
+tags: RedTeam,Tools
 ---
 
 # 介绍

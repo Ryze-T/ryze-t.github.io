@@ -1,6 +1,6 @@
 ---
 title: GetMenuBarInfo 实现 Windows 内核任意地址读取
-tags: windows
+tags: Windows
 ---
 ## 0x00 前言
 

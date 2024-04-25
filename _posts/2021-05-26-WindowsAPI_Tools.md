@@ -1,6 +1,6 @@
 ---
 title: Windows API tools
-tags: tools
+tags: Windows,Tools
 ---
 
 （编译后的地址：https://github.com/Ryze-T/Windows_API_Tools）

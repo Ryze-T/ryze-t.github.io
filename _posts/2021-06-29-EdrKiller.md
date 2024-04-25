@@ -1,6 +1,6 @@
 ---
 title: EdrKiller
-tags: tools
+tags: Tools,Windows,Bypass
 ---
 
 ## 起因
